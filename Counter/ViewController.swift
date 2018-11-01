@@ -39,6 +39,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
         navigationController?.navigationBar.isHidden = true
     }
     
@@ -50,7 +51,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         updateTally()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
+    deinit {
         NotificationCenter.default.removeObserver(self, name: UIApplication.didBecomeActiveNotification, object: nil)
     }
     
